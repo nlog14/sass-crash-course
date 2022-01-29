@@ -1,0 +1,26 @@
+//This file must be imported to style.scss.
+%btn {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 3px;
+
+  &:hover {
+    transform: scale(0.98);
+  }
+}
+
+//@extend is the same idea as inheritance.
+.btn-primary {
+  //In this case .btn-primary is inheriting from %btn.
+  @extend %btn;
+  //Use @include when calling a @mixin.
+  @include set-background(lighten($primary-color, 10%));
+  //lighten will make the button 10% lighter. Darken can also be used.
+}
+
+.btn-secondary {
+  //In this case .btn-secondary is inheriting from %btn.
+  @extend %btn;
+  @include set-background($secondary-color);
+}
